@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Great karikaalan Magic show❤️</title>
+  <style>
+    /* Global Styles with Rich Romantic Gradient */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at center, #2e0007 0%, #000000 85%);
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    section {
+      padding: 50px 20px;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    h1, h2 {
+      color: gold;
+      margin: 10px 0;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+
+    img {
+      width: 90%;
+      max-width: 350px;
+      border-radius: 20px;
+      margin: 15px 0;
+      box-shadow: 0 0 15px rgba(255, 192, 203, 0.3);
+    }
+
+    button {
+      padding: 15px 30px;
+      background: gold;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      cursor: pointer;
+      margin: 5px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px gold;
+    }
+
+    .card {
+      background: rgba(26, 0, 5, 0.6);
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid gold;
+      max-width: 350px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+    }
+
+    /* Floating & Shower Hearts */
+    .heart {
+      position: fixed;
+      font-size: 20px;
+      z-index: 999;
+    }
+
+    /* Rich Velvet Romantic Popup Box */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+
+    .popup-content {
+      background: linear-gradient(135deg, #4a000e, #1a0005);
+      padding: 30px 25px;
+      border-radius: 20px;
+      text-align: center;
+      font-size: 20px;
+      color: #fff;
+      max-width: 380px;
+      width: 85%;
+      border: 3px double gold;
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    .popup-content h3 {
+      color: gold;
+      margin-top: 0;
+      font-size: 24px;
+      text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+    }
+
+    .popup-content p {
+      line-height: 1.6;
+      margin: 15px 0 25px 0;
+    }
+
+    .popup-btn {
+      background: linear-gradient(to right, gold, #cca43b);
+      color: black;
+      font-weight: bold;
+      border: none;
+      padding: 12px 35px;
+      border-radius: 25px;
+      font-size: 16px;
+    }
+
+    /* Slideshow */
+    .slideshow-container {
+      width: 320px;
+      height: 320px;
+      position: relative;
+      margin: auto;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transform: scale(1);
+      transition: opacity 1s ease, transform 2.5s ease;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 20px pink;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 16px;
+      text-shadow: 0 0 10px black;
+    }
+
+    /* Countdown Box */
+    #countdownBox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #2e0007 0%, #000000 85%);
+      color: white;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      z-index: 9999;
+    }
+
+    /* Journey Map */
+    #lj_map {
+      text-align: center;
+      margin-top: 20px;
+      color: white;
+    }
+
+    .lj_step {
+      padding: 15px;
+      margin: 10px auto;
+      width: 220px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      cursor: pointer;
+      opacity: 0.4;
+      transition: 0.3s;
+    }
+
+    .lj_step.active {
+      opacity: 1;
+      box-shadow: 0 0 15px pink;
+      transform: scale(1.05);
+      background: rgba(255, 192, 203, 0.2);
+    }
+
+    /* Romantic Game Puzzle Framework Setup */
+    .puzzle-mask {
+      position: absolute;
+      background: linear-gradient(135deg, #2b0006, #120002);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      color: gold;
+      font-size: 18px;
+      text-shadow: 0 0 5px black;
+      transition: all 0.5s ease;
+      box-sizing: border-box;
+    }
+
+    #lj_finalBox, #finalBox {
+      text-align: center;
+      color: white;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mp3">
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Lockscreen Component -->
+  <div id="lockscreen" style="position:fixed; top:0; left:0; width:100%; height:100%; background: radial-gradient(circle at center, #3d000b 0%, #000000 100%); color:gold; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:99999;">
+    <h2 style="color: gold; text-shadow: 0 0 15px gold;">🔒 Arshaane etho ennal mudinthathu da &lt;3</h2>
+    <p style="color: #ffcccc; font-size: 17px; margin-bottom: 20px;">Only My Chaandhu can enter ❤️</p>
+    <input id="pwd" type="password" placeholder="Enter Password" style="padding:15px; border-radius:25px; border: 2px solid gold; background: rgba(0,0,0,0.6); color: white; text-align:center; width: 250px; font-size: 16px; outline: none; box-shadow: inset 0 0 10px rgba(212,175,55,0.2);">
+    <br>
+    <p style="color:white; max-width: 320px; font-size: 15px; line-height: 1.4;">Hint: Namma first date pona place its majorly used for shopping ❤️</p>
+    <br>
+    <button onclick="checkPwd()" style="background: linear-gradient(to right, #b30000, #ff0000); color: white; border: none; padding: 14px 40px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 0 20px rgba(255,0,0,0.5);">Thiranthidu seesae ❤️</button>
+  </div>
+  
+  <div id="countdownBox">
+       <h1 id="countText">Ready?</h1>
+  </div>
+
+  <div id="lovePopup" class="popup">
+    <div class="popup-content">
+      <h3 id="popupTitle">❤️ Message From Jaanu</h3>   
+      <p id="popupMessage">Popup Content</p>           
+      <button class="popup-btn" onclick="closeLovePopup()">OK</button>
+    </div>
+  </div>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h3>Hey Chellame!</h3>
+      <p>💖 Touch panathanu sonna panitiya haahaa, Its ok chelloo this is what i want to tell u in your special day 😍</p>
+      <button class="popup-btn" onclick="closePopup()">OK</button>
+    </div>
+  </div>
+
+  <br><br>
+  <button id="songButton" onclick="startRomanticShower()">❤️ First Don't Touch This!!!!!!!!!!!</button>
+
+  <section>
+    <h1>🎂Naan ready ne ready ah ?❤️</h1>
+    <p>A small journey through our memories...</p>
+    <button onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">Enter karo ❤️</button>
+  </section>
+
+  <section>
+    <h2>🏢 Where It All Started</h2>
+    <p>We met in an office...<br>Honestly didn't we know that one day we'd become each other's favorite person ❤️</p>
+    <img src="photo1.jpg" alt="Office memory">
+  </section>
+
+  <section>
+    <h2>📸 Our Memories</h2>
+    <img src="photo2.jpg" alt="Memory 2">
+    <p>Favourite Pic</p>
+    <img src="photo3.jpg" alt="Memory 3">
+    <p>See how many distance in this Pic with cute smile</p>
+    <img src="photo4.jpg" alt="Memory 4">
+    <p>And finally we both decided for peace & happiness with each other in first date.</p>
+  </section>
+
+  <section>
+    <h2>😂 Arshaan Facts</h2>
+    <div class="card">
+      <h2>My Nicknames for you</h2>
+      <p>🌙 Chaandhu - While comforting me</p>
+      <p>🧸 Kuttu - While Im in love mood</p>
+      <p>❤️ Arshu - When Im Happy</p>
+      <p>😘 Chellams - In Over Love Mood</p>
+      <p>🥺 Pattu - While Im Missing you</p>
+      <p>😂 Porukii - While Im in Anger</p>
+      <p>💕 Pookiiee - In Kochifying Mood</p>
+      <p>🤭 Gaaji - While your in Mood</p>
+    </div>
+    <br><br>
+
+    <div class="slideshow-container">
+      <div class="slide"><img src="photo6.jpg" alt="Slide"><div class="caption">💖 Second time @Pheonix Mall</div></div>
+      <div class="slide"><img src="photo7.jpg" alt="Slide"><div class="caption">❤️ First Pickup</div></div>
+      <div class="slide"><img src="photo8.jpg" alt="Slide"><div class="caption">✨ First Sunrise</div></div>
+      <div class="slide"><img src="photo9.jpg" alt="Slide"><div class="caption">💞 Second Sunrise</div></div>
+      <div class="slide"><img src="photo10.jpg" alt="Slide"><div class="caption">🌹 First Surprise</div></div>
+      <div class="slide"><img src="photo11.jpg" alt="Slide"><div class="caption">💘 Burger King illa My King</div></div>
+      <div class="slide"><img src="photo12.jpg" alt="Slide"><div class="caption">😍 Second Movie Date</div></div>
+      <div class="slide"><img src="photo13.jpg" alt="Slide"><div class="caption">🌟 Cute Together</div></div>
+      <div class="slide"><img src="photo14.jpg" alt="Slide"><div class="caption">💖 Always Together</div></div>
+      <div class="slide"><img src="photo15.jpg" alt="Slide"><div class="caption">❤️ Endless Love</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🧩 Puzzle Reveal Game</h2>
+    <p>Oru answer correct ah sonna, oru puzzle piece unlock aagi photo reveal aagum! ❤️</p>
+    
+    <div id="puzzleContainer" onclick="toggleZoom(this)" style="width: 300px; height: 400px; margin: auto; position: relative; background: url('bdaypic.png') no-repeat center; background-size: cover; border: 3px solid gold; border-radius: 15px; overflow: hidden; box-shadow: 0 0 25px rgba(212,175,55,0.3); transition: all 0.4s ease; cursor: pointer; z-index: 10;">
+        <div id="mask1" class="puzzle-mask" style="top:0; left:0; width:150px; height:133.3px;">❤️</div>
+        <div id="mask2" class="puzzle-mask" style="top:0; left:150px; width:150px; height:133.3px;">💖</div>
+        <div id="mask3" class="puzzle-mask" style="top:133.3px; left:0; width:150px; height:133.3px;">💕</div>
+        <div id="mask4" class="puzzle-mask" style="top:133.3px; left:150px; width:150px; height:133.3px;">💞</div>
+        <div id="mask5" class="puzzle-mask" style="top:266.6px; left:0; width:150px; height:133.4px;">💘</div>
+        <div id="mask6" class="puzzle-mask" style="top:266.6px; left:150px; width:150px; height:133.4px;">✨</div>
+    </div>
+
+    <div id="gameBox" style="margin-top: 30px;">
+      <h3 id="question">Game Loading...</h3>
+      <div id="options"></div>
+    </div>
+
+    <div id="finalBox" style="display:none;">
+      <h2>🎁 Neenga elathukum answer crt ah sonathaala Itho ungalukaaga 💖</h2>
+      <video width="300" id="videoSurprise" controls>
+        <source src="surprise.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <section style="min-height: auto; padding: 20px 20px 40px 20px;">
+    <h2>🤫 Our Secret Scratch Card</h2>
+    <p>Teikavum chellams! Scratch pannitu pinnaadi irukura secret message-ah kandupidi ❤️</p>
+    
+    <div style="position: relative; width: 300px; height: 180px; margin: auto; border: 3px double gold; border-radius: 15px; overflow: hidden; box-shadow: 0 0 20px rgba(212,175,55,0.3);">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #1a0005; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px; box-sizing: border-box;">
+        <h4 style="color: gold; margin: 0 0 5px 0;">✨ Pure Soul Connected!</h4>
+        <p style="color: #ffcccc; font-size: 14px; margin: 0; line-height: 1.4;">
+          "Namma first meet-la enaku theriyathu, nee thaan en ulagamay aagaporanu! i dont know nan yaan unna intha alavuku love pandrenu but namma nalla irupom chellooo.... Naan unna en kolantha pola paathukuven en na ne enaku avlo pudikum Love you endlessly My babs forever my first baby! 🫂❤️"
+        </p>
+      </div>
+      <canvas id="scratchCanvas" width="300" height="180" style="position: absolute; top: 0; left: 0; cursor: pointer; touch-action: none;"></canvas>
+    </div>
+  </section>
+
+  <section style="min-height: auto; padding: 20px;">
+  <h2>😂 Arshaan Love Quiz</h2>
+  <p>Who loves more? ❤️</p>
+    <button onclick="answerQuiz()">Swetha 😌</button><br><br>
+    <button onclick="answerQuiz()">Arshaan 😎</button><br><br>
+    <button onclick="answerQuiz()">Both ❤️</button><br><br>
+    <p id="quizResult"></p>
+  </section>
+
+  <section style="min-height: auto; padding: 20px 20px 40px 20px;">
+    <h2>🎰 Love Jackpot Slot Machine</h2>
+    <p>Spin pannu chellams! Match 3 icons to win your birthday prize! 🏆</p>
+    
+    <div style="background: linear-gradient(135deg, #4a000e, #1a0005); width: 280px; margin: auto; padding: 20px; border-radius: 20px; border: 3px solid gold; box-shadow: 0 0 20px rgba(212,175,55,0.4);">
+      <div style="display: flex; justify-content: space-around; background: black; padding: 15px; border-radius: 10px; border: 2px dashed gold; font-size: 35px; margin-bottom: 20px;">
+        <span id="reel1">❤️</span>
+        <span id="reel2">💖</span>
+        <span id="reel3">💕</span>
+      </div>
+      <button id="spinBtn" onclick="spinJackpot()" style="background: linear-gradient(to right, gold, #cca43b); color: black; font-weight: bold; width: 100%; padding: 12px; border-radius: 25px; font-size: 16px;">🎰 SPIN HERO!</button>
+      <div id="jackpotWin" style="display: none; margin-top: 20px; animation: bounce 0.5s infinite alternate;">
+        <h3 style="color: gold; font-size: 20px; margin: 5px 0;">🎉 JACKPOT HIT!!! 🥳</h3>
+        <p style="color: #ffcccc; font-size: 14px; line-height: 1.4; margin: 0;">
+          "You won Swetha's lifetime continuous love premium subscription pack! No cancellations allowed! 🎟️🔐💖"
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section style="min-height: auto; padding: 20px 20px 40px 20px;">
+    <h2>💬 Our Flashback Chat</h2>
+    <p>Namma early days-la pesuna cute text loop memory model 🥺❤️</p>
+    
+    <div style="background: #0b141a; width: 290px; margin: auto; border-radius: 15px; border: 2px solid #202c33; overflow: hidden; font-family: sans-serif; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+      <div style="background: #202c33; padding: 10px; text-align: left; display: flex; align-items: center; color: white;">
+        <div style="width: 35px; height: 35px; background: gold; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; color: black; margin-right: 10px;">🧸</div>
+        <div>
+          <span style="font-weight: bold; display: block; font-size: 14px;">My Chaandhu 🌙</span>
+          <span id="chatStatus" style="font-size: 11px; color: #00a884;">online</span>
+        </div>
+      </div>
+      <div id="chatBody" style="background: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png') repeat; padding: 15px; height: 200px; overflow-y: auto; display: flex; flex-direction: column; text-align: left;"></div>
+    </div>
+  </section>
+
+  <section style="min-height: auto; padding: 20px 20px 40px 20px;">
+    <h2>📊 Swetha-Arshaan Love Analytics</h2>
+    <p>Current system performance database report 💻</p>
+    <div style="background: rgba(26, 0, 5, 0.7); max-width: 300px; margin: auto; padding: 20px; border-radius: 15px; border: 1px solid gold; text-align: left; box-shadow: 0 0 15px rgba(212,175,55,0.2);">
+      <p style="margin: 8px 0;">🧸 <b>Kuttu Mood Index:</b> <span style="color: #00ffcc; font-weight: bold;">99.9% Stable</span></p>
+      <p style="margin: 8px 0;">😤 <b>Fight Recovery Speed:</b> <span style="color: #ff9999; font-weight: bold;">0.5 Seconds (Instant Patchup)</span></p>
+      <p style="margin: 8px 0;">🔥 <b>Gaaji Level Meter:</b> <span style="color: #ff3333; font-weight: bold;">180% (Overload Warning ⚠️)</span></p>
+      <p style="margin: 8px 0;">❤️ <b>Pure Love Database:</b> <span style="color: gold; font-weight: bold;">Infinite Loops ($ \infty $)</span></p>
+    </div>
+  </section>
+
+  <section style="min-height: auto; padding: 20px 20px 40px 20px;">
+    <h2>🎚️ Current Mood Tracker</h2>
+    <p>How much do you miss Swetha right now? Drag and see! 👀</p>
+    <div style="background: rgba(255,255,255,0.05); max-width: 300px; margin: auto; padding: 20px; border-radius: 15px; border: 1px solid gold;">
+      <input type="range" id="moodSlider" min="0" max="100" value="50" oninput="trackMood(this.value)" style="width: 100%; accent-color: gold; cursor: pointer;">
+      <div id="moodResponse" style="margin-top: 15px; color: gold; font-weight: bold; font-size: 15px; min-height: 40px;">
+        En Kuttu-ku en niyabagam vandhuducha? Umma! 😘
+      </div>
+    </div>
+  </section>
+  
+  <section id="lj_map">
+    <h2>💖 Love Journey Map</h2>
+    <div class="lj_step" data-lj="1" onclick="handleStep(this, 1)">💌 Start</div>
+    <div class="lj_step" data-lj="2" onclick="handleStep(this, 2)">📸 Memory</div>
+    <div class="lj_step" data-lj="3" onclick="handleStep(this, 3)">🎮 Question</div>
+    <div class="lj_step" data-lj="4" onclick="handleStep(this, 4)">💖 Choice</div>
+    <div class="lj_step" data-lj="5" onclick="handleStep(this, 5)">🎁 Final</div>
+
+    <div id="lj_finalBox" style="display:none;">
+      <h2>🎁 Surprise Unlocked 💖</h2>
+      <video width="300" id="video2" controls>
+        <source src="video2.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <section style="min-height: auto; padding: 20px 20px 40px 20px; text-align: center;">
+    <h2>🎡 Our Love Promises</h2>
+    <p>Spin pannu, nammala pathi oru secret promise-ah therinjiko! 💫</p>
+    <div style="width: 250px; height: 250px; margin: 20px auto; border: 5px solid gold; border-radius: 50%; display: flex; justify-content: center; align-items: center; background: radial-gradient(circle, #4a000e, #1a0005); box-shadow: 0 0 20px gold; position: relative;">
+      <div id="promiseText" style="color: white; font-weight: bold; padding: 10px; font-size: 14px;">
+        Spin the wheel... 🎡
+      </div>
+    </div>
+    <!-- UNIQUE ID APPLIED HERE -->
+    <button id="spinPromiseBtn" onclick="spinPromise()" style="background: linear-gradient(to right, #cca43b, gold); color: black; font-weight: bold; padding: 12px 25px; border-radius: 25px; border: none; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">SPIN PROMISE!</button>
+  </section>
+
+  <section>
+    <h2>🎂 Happy 23rd Birthday My Chaandhu ❤️</h2>
+    <img src="photo5.jpg" alt="Birthday pic">
+    <br>
+    <button onclick="showLetter()">💌 Open Secret Letter From Jaanu</button>
+    <br><br>
+    <div id="letter" style="display:none;">
+      <p style="max-width:700px; margin:auto; line-height:2;">
+        Happy Birthday My Chaandhu ❤️<br>
+        Thank you for every smile, every laugh, every memory and every moment.<br>
+        From our office first meet to all our adventures together...<br>
+        You became my comfort, my happiness and my favorite person.<br>
+        Whether you're my Kuttu, Arshu, Chellams, Pattu, Porukii, Pookiiee or Gaaji...<br>
+        You'll always be my favorite person.<br>
+        I love you endlessly ❤️<br>
+        — Your Jaanu 🖤
+      </p>
+    </div>
+  </section>
+
+  <section style="min-height: auto; padding: 20px;">
+    <button onclick="finalSurprise()">🎁 Open Your Birthday Gift</button>
+    <br><br>
+  </section>
+
+  <section style="min-height: auto; padding: 20px 20px 60px 20px; text-align: center; background: linear-gradient(to bottom, transparent, #1a0005);">
+    <div style="border-top: 1px dashed gold; width: 80%; margin: 0 auto 30px auto; opacity: 0.5;"></div>
+    <h2>🎙️ A Special Voice Note For My Babs</h2>
+    <p>Headphones pottuko da poruki... un Swetha pesuren 🎧❤️</p>
+    <div style="background: rgba(212,175,55,0.08); max-width: 300px; margin: auto; padding: 20px; border-radius: 15px; border: 1px dashed gold; box-shadow: 0 0 15px rgba(212,175,55,0.1);">
+      <p style="color: #ffcccc; font-size: 13px; margin-bottom: 15px; font-style: italic;">"En manasula irukuratha thaan pesiruken... keluda Kuttu!"</p>
+      <audio id="loveVoiceNote" controls style="width: 100%; accent-color: gold;">
+        <source src="audioend.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <button onclick="triggerGrandFinale()" style="margin-top: 35px; background: linear-gradient(45deg, #ff3366, #ff0033); color: white; font-weight: bold; padding: 15px 35px; border-radius: 30px; border: none; font-size: 16px; cursor: pointer; box-shadow: 0 0 20px rgba(255,51,102,0.4);">
+      ❤️ COMPLETE THE JOURNEY
+    </button>
+  </section>
+  <script>
+    let isZoomed = false;
+
+    function toggleZoom(element) {
+      if (level >= game.length) {
+        if (!isZoomed) {
+          element.style.position = "fixed";
+          element.style.top = "0";
+          element.style.left = "0";
+          element.style.width = "100vw";
+          element.style.height = "100vh";
+          element.style.borderRadius = "0px";
+          element.style.border = "none";
+          element.style.zIndex = "999999"; 
+          element.style.backgroundSize = "contain"; 
+          isZoomed = true;
+        } else {
+          element.style.position = "relative";
+          element.style.width = "300px";
+          element.style.height = "400px";
+          element.style.borderRadius = "15px";
+          element.style.border = "3px solid gold";
+          element.style.zIndex = "10";
+          element.style.backgroundSize = "cover";
+          isZoomed = false;
+        }
+      } else {
+        showCustomPopup("🤭 Hey My Chaandhu!", "Innum full puzzle-ah reveal பண்ணலையேடா poruki! Ella questions-kum correct-ah answer pannu, automatic-ah full photo open aagum! ❤️");
+      }
+    }
+
+    const music = document.getElementById("bgMusic");
+    const videos = document.querySelectorAll("video");
+
+    videos.forEach(video => {
+      video.addEventListener("play", () => { music.pause(); });
+      video.addEventListener("pause", () => { if (video.currentTime !== video.duration) music.play(); });
+      video.addEventListener("ended", () => { music.play(); });
+    });
+
+    let currentPopupCallback = null;
+
+    function showCustomPopup(title, msg, callback = null) {
+      document.getElementById("popupTitle").innerHTML = title;
+      document.getElementById("popupMessage").innerHTML = msg;
+      const popupEl = document.getElementById("lovePopup");
+      popupEl.style.zIndex = "999999"; 
+      popupEl.style.display = "flex";
+      currentPopupCallback = callback;
+    }
+
+    function closeLovePopup() {
+      document.getElementById("lovePopup").style.display = "none";
+      if(currentPopupCallback) {
+        currentPopupCallback();
+        currentPopupCallback = null;
+      }
+    }
+
+    function finalSurprise(){
+      showCustomPopup("🎂 Happy Birthday My Chaandhu ❤️", "365 days, countless memories and one amazing person.<br><br>Thank you for being my comfort, my happiness, and my favorite human.<br><br>With Love,<br>Biwi ❤️");
+    }
+
+    function showLetter(){
+      document.getElementById("letter").style.display = "block";
+    }
+
+    function answerQuiz(){
+      document.getElementById("quizResult").innerHTML = "🥰 Correct Answer: Both... but nan konjam adhigam 😜❤️";
+    }
+
+    function checkPwd(){
+      if(document.getElementById("pwd").value.toLowerCase() === "jayachandran"){
+        document.getElementById("lockscreen").style.display = "none";
+        triggerGameCountdown();
+      } else {
+        showCustomPopup("Achachoo! 😜", "Chellameah, password thappu da! Nalla yosi... ❤️");
+      }
+    }
+
+    setInterval(() => {
+      if(document.getElementById("lockscreen").style.display === "none") {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "-50px";
+        heart.style.fontSize = "25px";
+        heart.style.zIndex = "999";
+        document.body.appendChild(heart);
+
+        let pos = -50;
+        let move = setInterval(() => {
+          pos += 3;
+          heart.style.bottom = pos + "px";
+          if(pos > window.innerHeight){ clearInterval(move); heart.remove(); }
+        }, 20);
+      }
+    }, 1200);
+
+    function startRomanticShower() {
+      document.getElementById("popup").style.display = "flex";
+      if (music.paused) { music.play(); }
+      let emojis = ["❤️", "💖", "💕", "💘", "💞", "✨"];
+      let interval = setInterval(() => {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = window.innerHeight + "px";
+        heart.style.fontSize = (15 + Math.random() * 25) + "px";
+        document.body.appendChild(heart);
+
+        let upPos = window.innerHeight;
+        let upMove = setInterval(() => {
+          upPos -= 4; heart.style.top = upPos + "px";
+          if (upPos < -50) { clearInterval(upMove); heart.remove(); }
+        }, 15);
+      }, 150);
+      setTimeout(() => { clearInterval(interval); }, 6000);
+    }
+
+    function closePopup() { document.getElementById("popup").style.display = "none"; }
+
+    let slideIndex = 0;
+    function showSlides() {
+      let slides = document.querySelectorAll(".slide");
+      if(slides.length === 0) return;
+      slides.forEach(slide => { slide.style.opacity = 0; slide.style.transform = "scale(1)"; });
+      slideIndex++;
+      if (slideIndex >= slides.length) { slideIndex = 0; }
+      slides[slideIndex].style.opacity = 1;
+      setTimeout(() => { slides[slideIndex].style.transform = "scale(1.15)"; }, 100);
+      setTimeout(showSlides, 3000);
+    }
+    showSlides();
+
+    let level = 0;
+    let game = [
+      { q: "💖 When was our First vc call?", options: ["Dec 23 ❤️", "Dec 22 💘"], answer: 0, wrongMsg: "😏 Really? Think again da...", correctMsg: "Aww, crt chellameah! 😘"},
+      { q: "💌 How many times we went for sunrice?", options: ["1 💖", "2 💕"], answer: 1, wrongMsg: "😢 Aiyoo... hurt aagudhu", correctMsg: "Hehe, Alagu En Thangamey! 🏆" },
+      { q: "🌹 CKC pona apo en dress color enna?", options: ["Orange pink 💕", "yellow 💘"], answer: 0, wrongMsg: "💔 Think more Chaandhuma", correctMsg: "Acha en chelloo innum crt ah niyabagam vachirukiyeah! 💕" },
+      { q: "💞 Ambur nan vantha apo enna tiffin saptom ?", options: ["Dosa ❤️", "Poori 💖"], answer: 1, wrongMsg: "😤 Really?", correctMsg: "Really no words to say chellooooo! 🫂" },
+      { q: "⭐ Namma Pheonix mall la pona first movie ennah?", options: ["Aaromaley 🍿", "Youth 🎬"], answer: 0, wrongMsg: "😜 Marandhutiya da poruki kuttu!", correctMsg: "Semma memory power super! 😎" },
+      { q: "💘 Final question: Do you love me?", options: ["I LOVE YOU ❤️", "Not sure 😅"], answer: 0, wrongMsg: "😏 Really Chellooo????", correctMsg: "I LOVE YOU TOO DA MY CHAANDHU!!! 😭😭❤️❤️" }
+    ];
+
+    function loadGame() {
+      let q = game[level];
+      document.getElementById("question").innerText = "Level " + (level + 1) + ": " + q.q;
+      let box = document.getElementById("options"); box.innerHTML = "";
+      q.options.forEach((opt, i) => {
+        let btn = document.createElement("button");
+        btn.innerText = opt;
+        btn.onclick = function () {
+          if (i === q.answer) {
+            showCustomPopup("✨ Correct!", q.correctMsg, function() {
+              let currentMask = document.getElementById("mask" + (level + 1));
+              if(currentMask) {
+                currentMask.style.opacity = "0";
+                setTimeout(() => { currentMask.style.display = "none"; }, 500);
+              }
+              level++;
+              if (level < game.length) { loadGame(); } else { showFinal(); }
+            });
+          } else { showCustomPopup("Achachoo.. 😏", q.wrongMsg); }
+        };
+        box.appendChild(btn);
+      });
+    }
+
+    function showFinal() { document.getElementById("gameBox").style.display = "none"; document.getElementById("finalBox").style.display = "block"; }
+
+    function triggerGameCountdown() {
+      let text = document.getElementById("countText"); let box = document.getElementById("countdownBox");
+      let nums = ["3", "2", "1", "💖 Go!"]; let i = 0; text.innerText = nums[0]; box.style.display = "flex";
+      let timer = setInterval(() => {
+        i++;
+        if (i < nums.length) { text.innerText = nums[i]; }
+        if (i === nums.length - 1) { clearInterval(timer); setTimeout(() => { box.style.display = "none"; loadGame(); }, 800); }
+      }, 800);
+    }
+
+    let clickedSteps = [];
+    function handleStep(element, stepNo) {
+      if (clickedSteps.includes(stepNo)) { showCustomPopup("🤭 Wait!", "Adhaan munnadye click panla da Chaandhu! Vera edhavadhu block-ah click pannu. 😜"); return; }
+      let messages = {
+        1: "💌 Start-ah click pannitiya? Namma love journey-oda sweet pages-ah explore panitu vanthuruka super! ❤️",
+        2: "📸 Office-la meet pannadhum, first sunrise paathadhum niyabagam iruka? Memories forever! ✨",
+        3: "🎮 Kutty game full-ah crt ah answer pannitu inga vantha ne oru Smart boy! 😎",
+        4: "💖 Aww, Choice: you are my happiest Choice forever 😍",
+        5: "🎁 Finally Surprise unlock aaga innum konjam steps baki iruku, paar! 🥳"
+      };
+      showCustomPopup("💞 Journey Unfolded", messages[stepNo], function() {
+        element.classList.add("active");
+        if (!clickedSteps.includes(stepNo)) { clickedSteps.push(stepNo); }
+        if (clickedSteps.length === 5) { document.getElementById("lj_finalBox").style.display = "block"; showCustomPopup("🎉 Hahaha semma da!", "Ella block-aiyum cross panita! Unoda second surprise video open aairuchu keela paar... ❤️"); }
+      });
+    }
+
+    const canvas = document.getElementById('scratchCanvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#cca43b'; 
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#000000';
+      ctx.font = 'bold 16px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('Scratch Me My Chaandhu 🌙', canvas.width / 2, canvas.height / 2 + 5);
+      
+      let isDrawing = false;
+      
+      function scratch(e) {
+        if (!isDrawing) return;
+        const rect = canvas.getBoundingClientRect();
+        let x, y;
+        if (e.touches && e.touches[0]) {
+          x = e.touches[0].clientX - rect.left;
+          y = e.touches[0].clientY - rect.top;
+        } else {
+          x = e.clientX - rect.left;
+          y = e.clientY - rect.top;
+        }
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.beginPath();
+        ctx.arc(x, y, 20, 0, Math.PI * 2); 
+        ctx.fill();
+      }
+      
+      canvas.addEventListener('mousedown', () => isDrawing = true);
+      canvas.addEventListener('mouseup', () => isDrawing = false);
+      canvas.addEventListener('mousemove', scratch);
+      canvas.addEventListener('touchstart', () => isDrawing = true);
+      canvas.addEventListener('touchend', () => isDrawing = false);
+      canvas.addEventListener('touchmove', scratch);
+    }
+
+    let isSpinning = false;
+    function spinJackpot() {
+      if (isSpinning) return; 
+      isSpinning = true;
+      
+      const reel1 = document.getElementById('reel1');
+      const reel2 = document.getElementById('reel2');
+      const reel3 = document.getElementById('reel3');
+      const winBanner = document.getElementById('jackpotWin');
+      const spinBtn = document.getElementById('spinBtn');
+      
+      winBanner.style.display = 'none'; 
+      spinBtn.disabled = true;
+      spinBtn.innerText = 'Spinning... 🔄';
+      
+      let emojis = ["❤️", "💖", "💕", "💘", "💞", "✨", "🌙", "🧸"];
+      let counter = 0;
+      
+      let spinInterval = setInterval(() => {
+        reel1.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        reel2.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        reel3.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        counter++;
+        
+        if (counter > 12) { 
+          clearInterval(spinInterval);
+          reel1.innerText = "🧸";
+          reel2.innerText = "🧸";
+          reel3.innerText = "🧸";
+          
+          showCustomPopup("🏆 Dynamic Jackpot Unlocked!", "OMG! Triple bear matched da! You are a lifetime winner! 🥰", function() {
+            winBanner.style.display = 'block'; 
+            spinBtn.disabled = false;
+            spinBtn.innerText = 'SPIN HERO!';
+            isSpinning = false;
+          });
+        }
+      }, 100);
+    }
+
+    /* FIXED: Correct quotation mark position inside string brackets */
+    const chatData = [
+      { sender: 'arshaan', text: "Hey jaanu, thoongalama angel?" },
+      { sender: 'swetha', text: "Enaku thookam varla chelloo ne thoongu 😜" },
+      { sender: 'arshaan', text: "Athellam enaku theriyathu ipo enkooda sernthu thoongura ne avlothan vc va thoongalam!❤️" }
+    ];
+
+    let chatIndex = 0;
+    const chatBody = document.getElementById('chatBody');
+    const chatStatus = document.getElementById('chatStatus');
+
+    function runChatSimulator() {
+      if (chatIndex >= chatData.length) {
+        setTimeout(() => {
+          chatBody.innerHTML = '';
+          chatIndex = 0;
+          runChatSimulator();
+        }, 4000);
+        return;
+      }
+
+      let currentMsg = chatData[chatIndex];
+      chatStatus.innerText = 'typing...';
+
+      setTimeout(() => {
+        chatStatus.innerText = 'online';
+        let msgBubble = document.createElement('div');
+        msgBubble.style.padding = '8px 12px';
+        msgBubble.style.margin = '5px 0';
+        msgBubble.style.borderRadius = '10px';
+        msgBubble.style.fontSize = '13px';
+        msgBubble.style.maxWidth = '80%';
+        msgBubble.style.wordBreak = 'break-word';
+        msgBubble.style.color = '#e9edef';
+
+        if (currentMsg.sender === 'arshaan') {
+          msgBubble.style.background = '#202c33';
+          msgBubble.style.alignSelf = 'flex-start';
+          msgBubble.style.borderTopLeftRadius = '0px';
+        } else {
+          msgBubble.style.background = '#005c4b';
+          msgBubble.style.alignSelf = 'flex-end';
+          msgBubble.style.borderTopRightRadius = '0px';
+        }
+
+        msgBubble.innerText = currentMsg.text;
+        chatBody.appendChild(msgBubble);
+        chatBody.scrollTop = chatBody.scrollHeight; 
+
+        chatIndex++;
+        setTimeout(runChatSimulator, 2500); 
+      }, 1500);
+    }
+
+    if(chatBody) { runChatSimulator(); }
+
+    function trackMood(value) {
+      const responseText = document.getElementById('moodResponse');
+      let numericValue = parseInt(value);
+      
+      if (numericValue <= 30) {
+        responseText.innerHTML = "Po da poruki, poi velaiya paar! 😤";
+        responseText.style.color = "#ff9999";
+      } else if (numericValue > 30 && numericValue <= 70) {
+        responseText.innerHTML = "En Kuttu-ku en niyabagam vandhuducha? Umma! 😘";
+        responseText.style.color = "gold";
+      } else if (numericValue > 70) {
+        responseText.innerHTML = "I am coming to hug you right now My Chaandhu! 🫂❤️";
+        responseText.style.color = "#ff3333";
+      }
+    }
+
+    const promises = [
+      "Daily unna thitunaalum, un mela mattum thaan paasama irupen! 😤❤️",
+      "No matter what, unna yaarkum vitu tharama lifetime block panni vachirupen! 🔒🧸",
+      "Unaku eppovum favorite person-ah naan mattum thaan irupen! 👑",
+      "Enna nadanthalum, unnoda hand-ah eppovum vidama hold panniye irupen! 🤝✨",
+      "World-la evlo per irundhalum, unga jaanu-ku nee mattum thaan King! 🤴❤️"
+    ];
+
+    function spinPromise() {
+      const promiseDisplay = document.getElementById('promiseText');
+      /* FIXED: Pointing to unique spinPromiseBtn instead of duplicate spinBtn */
+      const spinBtn = document.getElementById('spinPromiseBtn');
+      
+      spinBtn.disabled = true;
+      spinBtn.innerText = 'Spinning... 🎡';
+      
+      let counter = 0;
+      let interval = setInterval(() => {
+        promiseDisplay.innerText = promises[Math.floor(Math.random() * promises.length)];
+        counter++;
+        
+        if (counter > 15) {
+          clearInterval(interval);
+          spinBtn.disabled = false;
+          spinBtn.innerText = 'SPIN AGAIN! 🎡';
+          promiseDisplay.style.color = "gold";
+          promiseDisplay.style.transform = "scale(1.1)";
+        }
+      }, 100);
+    }
+
+    function triggerGrandFinale() {
+      showCustomPopup(
+        "🎂 Happy 23rd Birthday My Whole World! 🌍✨", 
+        "Ithoda namma website surprise complete aagudhu da Chaandhu! But namma continuous love loop eppovume end aagadhu. En mela eppovumee unaku paasam koraya koodadhu, purinjidha? Go ahead, screen-ah lock pannittu un Jaanu-ku udane call panni unaku ithu evlo pudichirukunnu sollu! I love you endlessly, My babs! 🫂👑🔒💖"
+      );
+    } 
+
+    const voiceNote = document.getElementById('loveVoiceNote');
+    const bgMusic = document.getElementById('bgMusic'); 
+
+    if (voiceNote && bgMusic) {
+      voiceNote.addEventListener('play', () => { bgMusic.pause(); });
+      voiceNote.addEventListener('pause', () => { bgMusic.play().catch(e => console.log("Audio play resume blocked")); });
+      voiceNote.addEventListener('ended', () => { bgMusic.play().catch(e => console.log("Audio play resume blocked")); });
+    }
+  </script>
+</body>
+</html>
